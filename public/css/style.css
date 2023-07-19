@@ -91,4 +91,5 @@ main form {
     display: flex;
     flex-direction: column;
     border: 1px solid #e100ff;
+    gap: 1rem;
 }
