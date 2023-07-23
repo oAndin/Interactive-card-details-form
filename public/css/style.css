@@ -28,6 +28,7 @@
     --lightGrayishViolet: #dedddf;
     --darkGrayishViolet: #8e8593;
     --veryDarkViolet: #21092f;
+    --blueGray: #949bac ;
     --fontSize: 1rem;
 }
 
@@ -72,24 +73,33 @@
     background: var(--lightGrayishViolet);
 }
 
-/* #flipCard #circleBig {
+div#circles {
     position: relative;
-    bottom: 25%;
-    right: 35%;
+    bottom: 7%;
+    right: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#flipCard #circleBig {
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
     background-color: var(--white);
 }
 #flipCard #circleSmall {
-    position: relative;
-    bottom: 42%;
-    right: 22%;
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
     border: 1px solid var(--white); 
-} */
+}
+
+main #flipCard h1,h3 {
+    color: var(--white);
+    font-weight: normal;
+}
 
 #realDate {
     display: flex;
@@ -102,6 +112,23 @@ div#blackLine{
     height: 3rem;
     width: 100%;
     background-color: #313131;
+}
+
+div#grayLine {
+    position: absolute;
+    top: 50%;
+    width: 85%;
+    height: 2rem;
+    background-color: var(--blueGray);
+}
+
+#realCVC {
+    transform: translateY(50%);
+    display: flex;
+    font-size: var(--fontSize);
+    justify-content: end;
+    color: var(--white);
+    margin-right: 0.5rem;
 }
 
 main {

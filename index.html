@@ -21,7 +21,7 @@
           </div>
           <h1 id="realNumber">0000 0000 0000 0000</h1>
           <h3 id="realName">Name</h3>
-          <div id="realDate">
+          <div  id="realDate">
             <h3 id="realDateMonth">MM</h3>
             <h3 id="">/</h3>
             <h3 id="realDateYear">YY</h3>
@@ -29,6 +29,7 @@
         </div>
         <div id="card-back">
           <div id="blackLine"></div>
+          <div id="grayLine"><h1 id="realCVC">123</h1></div>
         </div>
       </div>
     </div>
@@ -37,18 +38,18 @@
         <label>CARDHOLDER NAME</label>
         <input id="cardHolder" type="text" placeholder="e.g Jane Appleseed">
         <label>CARD NUMBER</label>
-        <input id="cardNumber" type="text" placeholder="e.g 1234 5678 9123 0000">
+        <input id="cardNumber" type="text" placeholder="e.g 1234 5678 9123 0000" maxlength="16">
         <div id="expDateSide">
           <div id="sideDate">
             <label>EXP. DATE (MM/YY)</label>
             <div id="sideSide">
-              <input id="month" type="text" placeholder="MM">
-              <input id="year" type="text" placeholder="YY">
+              <input id="month" type="text" placeholder="MM" maxlength="2" min="01" max="12">
+              <input id="year" type="text" placeholder="YY" maxlength="2">
             </div>
           </div>
           <div id="sideCVC">
             <label>CVC</label>
-            <input id="CVC" type="text" placeholder="e.g 123">
+            <input id="CVC" type="text" placeholder="e.g 123" maxlength="3">
           </div>
         </div>
         <button type="submit">Confirm</button>

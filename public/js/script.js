@@ -28,3 +28,7 @@ year.onkeyup = function (){
     realDateYear.innerHTML = `${year.value}`
 }
 
+CVC.onkeyup = function () {
+    realCVC.innerHTML = `${CVC.value}`
+}
+
