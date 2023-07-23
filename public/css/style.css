@@ -8,10 +8,10 @@
     color: hsl(228, 45%, 44%);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500&display=swap');
 
 * {
-    /* border: 0; */
+    border: 0;
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -31,15 +31,8 @@
     --fontSize: 1rem;
 }
 
-main {
-    width: 100%;
-    height: 100vh;
-    background-color: #fff;
-    display: flex;
-    position: relative;
-}
 
-#flip-card {
+#flipCard {
     width: 400px;
     height: 200px;
     background-color: transparent;
@@ -48,22 +41,20 @@ main {
     position: absolute;
     top: 50%;
     left: 25%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
+    user-select: none;
 }
 
-#card-inner {
+#cardInner {
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 1.5s ease-in-out;
-    transform-style:preserve-3d;
+    transition: transform 2s ease-in-out;
+    transform-style: preserve-3d;
 }
 
-#flip-card:hover #card-inner {
-    transform: rotateY(180deg);
-}
-
-#card-front, #card-back {
+#card-front,
+#card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -73,10 +64,52 @@ main {
     justify-content: center;
     flex-direction: column;
     border-radius: 14px;
-    background-color: #ff0000;
+    background: linear-gradient(315deg,var(--firstLinearGradient), var(--secondLinearGradient));
 }
+
 #card-back {
     transform: rotateY(180deg);
+    background: var(--lightGrayishViolet);
+}
+
+/* #flipCard #circleBig {
+    position: relative;
+    bottom: 25%;
+    right: 35%;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: var(--white);
+}
+#flipCard #circleSmall {
+    position: relative;
+    bottom: 42%;
+    right: 22%;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 1px solid var(--white); 
+} */
+
+#realDate {
+    display: flex;
+    gap: 0.5rem;
+}
+
+div#blackLine{
+    position: absolute;
+    top: 10%;
+    height: 3rem;
+    width: 100%;
+    background-color: #313131;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    position: relative;
 }
 
 main div#test {
@@ -90,6 +123,59 @@ main div#test {
 main form {
     display: flex;
     flex-direction: column;
-    border: 1px solid #e100ff;
-    gap: 1rem;
+    width: 350px;
 }
+
+label {
+    color: var(--secondLinearGradient);
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+main form input {
+    margin-bottom: 1rem;
+    width: 100%;
+    border: 1px solid var(--darkGrayishViolet);
+    height: 2.5rem;
+    border-radius: 6px;
+    padding-left: 0.5rem;
+}
+
+main form div#expDateSide {
+    display: flex;
+}
+
+main form div#sideDate input {
+    width: 40%;
+}
+
+main form div#sideDate {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+main form div#sideDate #sideSide {
+    display: flex;
+    gap: 0.8rem;
+}
+main form div#sideCVC{
+    display: flex;
+    flex-direction: column;
+}
+main form #sideCVC input {
+    width: 100%;
+}
+
+main form #expDateSide {
+    display: flex;
+}
+
+main form button {
+    height: 3rem;
+    border-radius: 6px;
+    color: var(--lightGrayishViolet);
+    background-color: var(--veryDarkViolet);
+}
+
