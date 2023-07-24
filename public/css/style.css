@@ -30,6 +30,7 @@
     --veryDarkViolet: #21092f;
     --blueGray: #949bac ;
     --fontSize: 1rem;
+    --smallFontSize: 0.7rem;
 }
 
 
@@ -75,8 +76,8 @@
 
 div#circles {
     position: relative;
-    bottom: 7%;
-    right: 30%;
+    bottom: 25%;
+    right: 31%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,7 +94,7 @@ div#circles {
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    border: 1px solid var(--white); 
+    border: 2px solid var(--white); 
 }
 
 main #flipCard h1,h3 {
@@ -129,6 +130,27 @@ div#grayLine {
     justify-content: end;
     color: var(--white);
     margin-right: 0.5rem;
+}
+
+#realNumber {
+    position: absolute;
+    top: 60%;
+    font-size: 2.1rem;
+    text-align: center;
+}
+
+#realName {
+    position: absolute;
+    left: 10%;
+    bottom: 10%;
+    font-size: var(--fontSize);
+}
+
+#realDate {
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+    font-size: var(--smallFontSize);
 }
 
 main {

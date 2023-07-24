@@ -1,7 +1,13 @@
+const onlyLetters = /[w*]/;
+
 console.log("Hello World!");
 
 function verification() {
     event.preventDefault();
+}
+
+function onlyNumbers () {
+    
 }
 
 CVC.onfocus = function () {
@@ -11,17 +17,18 @@ CVC.onblur = function () {
     cardInner.style.transform = `rotateY(360deg)`;
 }
 
-// cardHolder.onFocus = function (){
-//     if (cardHolder.value != '') {}
-// }
 
 cardNumber.onkeyup = function (){
+    if(cardNumber.value != /^\D+$/) {
+        cardNumber.replaceAll([a-z], '');
+    }
     realNumber.innerHTML = `${cardNumber.value}`
 }
 cardHolder.onkeyup = function (){
     realName.innerHTML = `${cardHolder.value}`
 }
 month.onkeyup = function (){
+    
     realDateMonth.innerHTML = `${month.value}`
 }
 year.onkeyup = function (){
