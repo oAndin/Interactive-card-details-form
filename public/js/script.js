@@ -1,13 +1,8 @@
-const onlyLetters = /[w*]/;
 
 console.log("Hello World!");
 
 function verification() {
     event.preventDefault();
-}
-
-function onlyNumbers () {
-    
 }
 
 CVC.onfocus = function () {
@@ -18,12 +13,17 @@ CVC.onblur = function () {
 }
 
 
+const onlyNumbers = /[0-9]/g;
+let onlyLetters;
+onlyLetters != onlyNumbers;
 cardNumber.onkeyup = function (){
-    if(cardNumber.value != /^\D+$/) {
-        cardNumber.replaceAll([a-z], '');
-    }
-    realNumber.innerHTML = `${cardNumber.value}`
+    if (cardNumber.value != onlyNumbers) {
+    console.log("Não")
+    cardNumber.value = cardNumber.value.replaceAll(onlyLetters,'') 
+};
+realNumber.innerHTML = `${cardNumber.value}`
 }
+// realNumber.innerHTML = `${cardNumber.value}`
 cardHolder.onkeyup = function (){
     realName.innerHTML = `${cardHolder.value}`
 }
