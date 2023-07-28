@@ -14,24 +14,23 @@ CVC.onblur = function () {
 
 
 const onlyNumbers = /[0-9]/g;
-let onlyLetters;
-onlyLetters != onlyNumbers;
+const onlyLetters = /[a-z]/ig;
+
 cardNumber.onkeyup = function (){
-    if (cardNumber.value != onlyNumbers) {
-    console.log("Não")
     cardNumber.value = cardNumber.value.replaceAll(onlyLetters,'') 
+    cardNumber.value = cardNumber.value.replace(/(\d{4})?(\d{4})?(\d{4})?(\d{4})/, "$1 $2 $3 $4")
+    realNumber.innerHTML = `${cardNumber.value}`
 };
-realNumber.innerHTML = `${cardNumber.value}`
-}
-// realNumber.innerHTML = `${cardNumber.value}`
 cardHolder.onkeyup = function (){
+    cardHolder.value = cardHolder.value.replaceAll(onlyNumbers, '')
     realName.innerHTML = `${cardHolder.value}`
 }
 month.onkeyup = function (){
-    
+    month.value = month.value.replaceAll(onlyLetters, '')
     realDateMonth.innerHTML = `${month.value}`
 }
 year.onkeyup = function (){
+    year.value = year.value.replace.replaceAll(onlyLetters, '') 
     realDateYear.innerHTML = `${year.value}`
 }
 
