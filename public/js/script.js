@@ -18,7 +18,7 @@ const onlyLetters = /[a-z]/ig;
 
 cardNumber.onkeyup = function (){
     cardNumber.value = cardNumber.value.replaceAll(onlyLetters,'') 
-    cardNumber.value = cardNumber.value.replace(/(\d{4})?(\d{4})?(\d{4})?(\d{4})/, "$1 $2 $3 $4")
+    // cardNumber.value = cardNumber.value.replace(/(\d{4})?(\d{4})?(\d{4})?(\d{4})/, "$1","$2","$3","$4")
     realNumber.innerHTML = `${cardNumber.value}`
 };
 cardHolder.onkeyup = function (){
@@ -30,11 +30,12 @@ month.onkeyup = function (){
     realDateMonth.innerHTML = `${month.value}`
 }
 year.onkeyup = function (){
-    year.value = year.value.replace.replaceAll(onlyLetters, '') 
-    realDateYear.innerHTML = `${year.value}`
+    year.value = year.value.replaceAll(onlyLetters, '') 
+    realDateYear.innerHTML = `${year.value}`    
 }
 
 CVC.onkeyup = function () {
+    CVC.value = CVC.value.replaceAll(onlyLetters,'')
     realCVC.innerHTML = `${CVC.value}`
 }
 
