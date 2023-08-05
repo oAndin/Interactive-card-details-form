@@ -183,7 +183,6 @@ label {
 }
 
 main form input {
-    margin-bottom: 1rem;
     width: 100%;
     border: 1px solid var(--darkGrayishViolet);
     height: 2.5rem;
@@ -222,9 +221,17 @@ main form #expDateSide {
 }
 
 main form button {
+    margin-top: 1rem;
     height: 3rem;
     border-radius: 6px;
     color: var(--lightGrayishViolet);
     background-color: var(--veryDarkViolet);
 }
 
+.textWrong {
+    color: var(--red);
+    font-size: 12px;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    visibility: hidden;
+}

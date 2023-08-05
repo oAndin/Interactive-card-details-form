@@ -17,9 +17,15 @@ const onlyNumbers = /[0-9]/g;
 const onlyLetters = /[a-z]/ig;
 
 cardNumber.onkeyup = function (){
-    cardNumber.value = cardNumber.value.replaceAll(onlyLetters,'') 
+    // cardNumber.value = cardNumber.value.replaceAll(onlyLetters,'') 
     // cardNumber.value = cardNumber.value.replace(/(\d{4})?(\d{4})?(\d{4})?(\d{4})/, "$1","$2","$3","$4")
-    realNumber.innerHTML = `${cardNumber.value}`
+    // realNumber.innerHTML = `${cardNumber.value}`
+    if(cardNumber.value != onlyNumbers) {
+        textNumber.style.visibility = 'visible'
+    }
+    if(cardNumber.value === onlyNumbers){
+        textNumber.style.visibility = 'hidden'
+    }
 };
 cardHolder.onkeyup = function (){
     cardHolder.value = cardHolder.value.replaceAll(onlyNumbers, '')
@@ -39,3 +45,7 @@ CVC.onkeyup = function () {
     realCVC.innerHTML = `${CVC.value}`
 }
 
+//textName
+//textNumber
+//textDate
+//textCVC
