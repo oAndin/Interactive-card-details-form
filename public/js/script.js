@@ -20,11 +20,16 @@ cardNumber.onkeyup = function (){
     // cardNumber.value = cardNumber.value.replaceAll(onlyLetters,'') 
     // cardNumber.value = cardNumber.value.replace(/(\d{4})?(\d{4})?(\d{4})?(\d{4})/, "$1","$2","$3","$4")
     // realNumber.innerHTML = `${cardNumber.value}`
-    if(cardNumber.value != onlyNumbers) {
+    if(!onlyNumbers.test(cardNumber.value)) {
+        textNumber.innerHTML = `Wrong format, numbers only`
         textNumber.style.visibility = 'visible'
     }
-    if(cardNumber.value === onlyNumbers){
+    if(onlyNumbers.test(cardNumber.value)){
         textNumber.style.visibility = 'hidden'
+    }
+    if(cardNumber == '') {
+        textNumber.innerHTML = `Can't be blank`
+        textNumber.style.visibility = 'visible'
     }
 };
 cardHolder.onkeyup = function (){
