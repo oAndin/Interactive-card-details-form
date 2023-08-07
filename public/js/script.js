@@ -122,6 +122,8 @@ function verification() {
 
 send.onclick = function () {
     if (correctCVC == true && correctYear == true && correctMonth == true && correctName == true && correctNumber == true) {
-        cardForm.innerHTML = '';
+        cardForm.innerHTML = `
+        <div id="loader"></div>
+        `;
     }
 }
