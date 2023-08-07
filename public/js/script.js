@@ -1,46 +1,23 @@
 console.log("Hello World!");
 const onlyNumbers = /[0-9]/g;
 const onlyLetters = /[a-z]/ig;
-
+// cardNumber.value = cardNumber.value.replace(/(\d{4})?(\d{4})?(\d{4})?(\d{4})/, "$1","$2","$3","$4")
 let correctNumber = false;
 let correctName = false;
 let correctMonth = false;
 let correctYear = false;
 let correctCVC = false;
 
-console.log(correctNumber);
-console.log(correctName);
-console.log(correctMonth);
-console.log(correctYear);
-console.log(correctCVC);
-
 function verification() {
     event.preventDefault();
+    checkNumber();
+    checkName();
+    checkMonth();
+    checkYear();
+    checkCVC();
 }
 
-CVC.onfocus = function () {
-    cardInner.style.transform = `rotateY(180deg)`;
-}
-CVC.onblur = function () {
-    cardInner.style.transform = `rotateY(360deg)`;
-}
-
-
-cardNumber.onkeyup = function () {
-    // cardNumber.value = cardNumber.value.replace(/(\d{4})?(\d{4})?(\d{4})?(\d{4})/, "$1","$2","$3","$4")
-    if (!onlyNumbers.test(cardNumber.value)) {
-        textNumber.innerHTML = `Wrong format, numbers only`
-        textNumber.style.visibility = 'visible'
-    }
-    if (onlyNumbers.test(cardNumber.value)) {
-        textNumber.style.visibility = 'hidden'
-    }
-    if (cardNumber.value == '') {
-        textNumber.innerHTML = `Can't be blank`
-        textNumber.style.visibility = 'visible'
-    }
-};
-cardNumber.onblur = function () {
+function checkNumber() {
     if (!onlyNumbers.test(cardNumber.value)) {
         textNumber.innerHTML = `Wrong format, numbers only`
         textNumber.style.visibility = 'visible'
@@ -56,7 +33,9 @@ cardNumber.onblur = function () {
         correctNumber = true;
     }
 }
-cardHolder.onkeyup = function () {
+
+function checkName() {
+    event.preventDefault();
     if (onlyLetters.test(cardHolder.value)) {
         textName.style.visibility = 'hidden'
     }
@@ -69,22 +48,9 @@ cardHolder.onkeyup = function () {
         textName.style.visibility = 'visible'
     }
 }
-cardHolder.onblur = function () {
-    if (onlyLetters.test(cardHolder.value)) {
-        textName.style.visibility = 'hidden'
-    }
-    if (!onlyLetters.test(cardHolder.value)) {
-        textName.style.visibility = 'visible'
-        textName.innerHTML = `Wrong formate, letters only`
-    }
-    if (cardHolder.value == '') {
-        textName.innerHTML = `Can't be blank`
-    }
-    if (cardHolder.value != '' && onlyLetters.test(cardHolder.value) == true) {
-        correctName = true;
-    }
-}
-month.onkeyup = function () {
+
+function checkMonth() {
+    event.preventDefault();
     if (!onlyNumbers.test(month.value)) {
         textDate.visibility = "visible";
         textDate.innerHTML = 'Wrong format, numbers only';
@@ -93,27 +59,13 @@ month.onkeyup = function () {
         textDate.visibility = "hidden";
     };
     if (month.value == '') {
-        textDate.visibility = "visible";
         textDate.innerHTML = "Can't be blank";
+        textDate.visibility = "visible"
     };
 }
-month.onblur = function () {
-    if (!onlyNumbers.test(month.value)) {
-        textDate.visibility = "visible";
-        textDate.innerHTML = 'Wrong format, numbers only';
-    };
-    if (onlyNumbers.test(month.value)) {
-        textDate.visibility = "hidden";
-    };
-    if (month.value == '') {
-        textDate.visibility = "visible";
-        textDate.innerHTML = "Can't be blank";
-    };
-    if (month.value != '' && onlyNumbers.test(month.value) == true) {
-        correctMonth = true;
-    }
-}
-year.onkeyup = function () {
+
+function checkYear() {
+    event.preventDefault();
     if (!onlyNumbers.test(year.value)) {
         textDate.visibility = "visible";
         textDate.innerHTML = 'Wrong format, numbers only';
@@ -122,27 +74,13 @@ year.onkeyup = function () {
         textDate.visibility = "hidden";
     };
     if (year.value == '') {
-        textDate.visibility = "visible";
-        textDate.innerHTML = "Can't be blank";
+        textDate.innerHTML = "Can't be blank"
+        textDate.visibility = "visible"
     };
 }
-year.onblur = function () {
-    if (!onlyNumbers.test(year.value)) {
-        textDate.visibility = "visible";
-        textDate.innerHTML = 'Wrong format, numbers only';
-    };
-    if (onlyNumbers.test(year.value)) {
-        textDate.visibility = "hidden";
-    };
-    if (year.value == '') {
-        textDate.visibility = "visible";
-        textDate.innerHTML = "Can't be blank";
-    };
-    if (year.value != '' && onlyNumbers.test(year.value) == true) {
-        correctYear = true;
-    }
-}
-CVC.onkeyup = function () {
+
+function checkCVC() {
+    event.preventDefault();
     if (onlyNumbers.test(CVC.value)) {
         textCVC.style.visibility = "hidden"
     }
@@ -154,23 +92,20 @@ CVC.onkeyup = function () {
         textCVC.style.visibility = "visible"
         textCVC.innerHTML = `Can't be blank`
     }
+}
+
+CVC.onfocus = function () {
+    cardInner.style.transform = `rotateY(180deg)`;
 }
 CVC.onblur = function () {
-    if (onlyNumbers.test(CVC.value)) {
-        textCVC.style.visibility = "hidden"
-    }
-    if (!onlyNumbers.test(CVC.value)) {
-        textCVC.style.visibility = "visible"
-        textCVC.innerHTML = `Wrong format, numbers only`
-    }
-    if (CVC.value == '') {
-        textCVC.style.visibility = "visible"
-        textCVC.innerHTML = `Can't be blank`
-    }
-    if (CVC.value != '' && onlyNumbers.test(CVC.value) == true) {
-        correctCVC = true;
-    }
+    cardInner.style.transform = `rotateY(360deg)`;
 }
+
+// cardNumber.onblur = checkNumber ();
+// cardHolder.onblur = checkName (); 
+// month.onblur = checkMonth();
+// year.onblur = checkYear ();
+// CVC.onblur = checkCVC ();
 
 send.onclick = function () {
     if (correctCVC == true && correctYear == true && correctMonth == true && correctName == true && correctNumber == true) {
