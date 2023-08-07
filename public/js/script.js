@@ -74,6 +74,11 @@ function checkYear() {
         textDate.visibility = "hidden";
     };
     if (year.value == '') {
+
+
+
+
+        
         textDate.innerHTML = "Can't be blank"
         textDate.visibility = "visible"
     };
