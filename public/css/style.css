@@ -28,6 +28,7 @@
     --lightGrayishViolet: #dedddf;
     --darkGrayishViolet: #8e8593;
     --veryDarkViolet: #21092f;
+    --DarkViolet: #4c136d;
     --blueGray: #949bac ;
     --fontSize: 1rem;
     --smallFontSize: 0.7rem;
@@ -226,6 +227,12 @@ main form button {
     border-radius: 6px;
     color: var(--lightGrayishViolet);
     background-color: var(--veryDarkViolet);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+main form button#send:hover {
+    background-color: var(--DarkViolet);
 }
 
 .textWrong {
