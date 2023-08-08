@@ -105,6 +105,39 @@ CVC.onblur = function () {
     cardInner.style.transform = `rotateY(360deg)`;
 }
 
+cardHolder.onkeyup = function () {
+    checkName();
+    if (correctName == true) {
+        realName.innerHTML = `${cardHolder.value}`
+    }
+}   
+cardNumber.onkeyup = function () {
+    checkNumber();
+    if(correctNumber == true) {
+        realNumber.innerHTML = `${cardNumber.value}`;
+    }
+}
+month.onkeyup = function () {
+    checkMonth();
+    console.log("Aqui");
+    if(correctMonth == true) {
+        realDateMonth.innerHTML = `${month.value}`;
+    };
+}
+year.onkeyup = function () {
+    checkYear();
+    console.log("Aqui");
+    if(correctYear == true) {
+        realDateYear.innerHTML = `${year.value}`;
+    };
+}
+CVC.onkeyup = function () {
+    checkCVC();
+    if(correctCVC == true) {
+        realCVC.innerHTML = `${CVC.value}`
+    }
+}
+
 function verification() {
     event.preventDefault();
     checkNumber();
@@ -112,12 +145,6 @@ function verification() {
     checkMonth();
     checkYear();
     checkCVC();
-    console.log(correctName);
-    console.log(correctNumber);
-    console.log(correctMonth);
-    console.log(correctYear);
-    console.log(correctCVC);
-
 }
 
 send.onclick = function () {
@@ -125,5 +152,19 @@ send.onclick = function () {
         cardForm.innerHTML = `
         <div id="loader"></div>
         `;
+        loader.style.animation = `animation: spin linear 3s 2`;
+        setInterval(() => {
+            loader.style.visibility = 'hidden';
+        }, 3000)
+        setTimeout (()=> {
+        cardForm.innerHTML = `
+        <div id="complete">
+        <div id="completeCircle"><box-icon name='check' size="45px"></box-icon></div>
+        <h2>Thank You!</h2>
+        <h5>We've added your card details</h2>
+          <button>Continue</button>
+      </div>
+        `
+     }, 3001)
     }
 }

@@ -1,14 +1,3 @@
-.attribution {
-    font-size: 11px;
-    text-align: center;
-    color: #cfcfcf;
-
-}
-
-.attribution a {
-    color: hsl(228, 45%, 44%);
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500&display=swap');
 
 * {
@@ -19,7 +8,6 @@
     list-style: none;
     box-sizing: border-box;
     font-family: 'Hanken Grotesk', sans-serif;
-    overflow: hidden;
 }
 
 :root {
@@ -31,7 +19,7 @@
     --darkGrayishViolet: #8e8593;
     --veryDarkViolet: #21092f;
     --DarkViolet: #4c136d;
-    --blueGray: #949bac ;
+    --blueGray: #949bac;
     --fontSize: 1rem;
     --smallFontSize: 0.7rem;
 }
@@ -42,8 +30,8 @@
     height: 200px;
     background-color: transparent;
     perspective: 1000px;
-    z-index: 10;
     position: absolute;
+    z-index: 10;
     top: 50%;
     left: 25%;
     transform: translate(-50%, -50%);
@@ -58,7 +46,8 @@
     transform-style: preserve-3d;
 }
 
-#card-front,#card-back {
+#card-front,
+#card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -68,7 +57,7 @@
     justify-content: center;
     flex-direction: column;
     border-radius: 14px;
-    background: linear-gradient(315deg,var(--firstLinearGradient), var(--secondLinearGradient));
+    background: linear-gradient(315deg, var(--firstLinearGradient), var(--secondLinearGradient));
 }
 
 #card-back {
@@ -92,14 +81,16 @@ div#circles {
     border-radius: 50%;
     background-color: var(--white);
 }
+
 #flipCard #circleSmall {
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    border: 2px solid var(--white); 
+    border: 2px solid var(--white);
 }
 
-main #flipCard h1,h3 {
+main #flipCard h1,
+h3 {
     color: var(--white);
     font-weight: normal;
 }
@@ -109,7 +100,7 @@ main #flipCard h1,h3 {
     gap: 0.5rem;
 }
 
-div#blackLine{
+div#blackLine {
     position: absolute;
     top: 10%;
     height: 3rem;
@@ -165,9 +156,19 @@ main {
     position: relative;
 }
 
+.attribution {
+    margin-top: 1rem;
+    font-size: 11px;
+    text-align: center;
+    color: #cfcfcf;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
 main img {
-    /* width: 100%;
-    height: 100%; */
+    height: 100%;
     object-fit: cover;
     object-position: left;
 }
@@ -203,6 +204,7 @@ main form input {
 
 main form div#expDateSide {
     display: flex;
+    justify-content: space-between;
 }
 
 main form div#sideDate input {
@@ -219,10 +221,12 @@ main form div#sideDate #sideSide {
     display: flex;
     gap: 0.8rem;
 }
-main form div#sideCVC{
+
+main form div#sideCVC {
     display: flex;
     flex-direction: column;
 }
+
 main form #sideCVC input {
     width: 100%;
 }
@@ -257,12 +261,63 @@ div#loader {
     width: 140px;
     height: 140px;
     border-radius: 50%;
+    visibility: visible;
     border: 20px solid var(--DarkViolet);
     border-top: 20px solid var(--veryDarkViolet);
-    animation: spin linear 3s 2;
+    animation: spin linear 3s 1;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(720deg); }
-  }
+    0% {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotate(720deg);
+    }
+}
+
+div#complete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+div#complete div#completeCircle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill: var(--white);
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: linear-gradient(var(--firstLinearGradient), var(--secondLinearGradient));
+}
+
+div#complete h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--veryDarkViolet);
+    
+}
+
+div#complete h5 {
+    color: var(--blueGray);
+    margin-bottom: 2rem;
+}
+div#complete button {
+    border-radius: 6px;
+    width: 300px;
+    height: 50px;
+    color: var(--white);
+    background-color: var(--veryDarkViolet);
+    cursor: pointer;
+}
