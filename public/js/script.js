@@ -17,12 +17,17 @@ function checkNumber() {
     if (onlyNumbers.test(cardNumber.value)) {
         textNumber.style.visibility = 'hidden'
     }
-    if (cardNumber.value == '') {
+    if (cardNumber.length == 0) {
         textNumber.innerHTML = `Can't be blank`
         textNumber.style.visibility = 'visible'
     }
-    if (cardNumber.value != '' && onlyNumbers.test(cardNumber.value) == true) {
+    if((cardNumber.value).length < 16 && (cardNumber.value).length > 1) {
+        textNumber.style.visibility = 'visible';
+        textNumber.innerHTML = "Wrong format, not enough numbers"
+    }
+    if (cardNumber.value != '' && onlyNumbers.test(cardNumber.value) == true && cardNumber.length > 15) {
         correctNumber = true;
+        console.log("Passou");
     }
 }
 
@@ -53,11 +58,11 @@ function checkMonth() {
     if (onlyNumbers.test(month.value)) {
         textDate.visibility = "hidden";
     }
-    if (month.value == '') {
+    if (month.length == 0) {
         textDate.style.visibility = "visible"
         textDate.innerHTML = "Can't be blank";
     }
-    if(month.value != '' && onlyNumbers.test(month.value) == true) {
+    if(month.length != 0 && onlyNumbers.test(month.value) == true) {
         correctMonth = true;
     }
 }
@@ -71,11 +76,11 @@ function checkYear() {
     if (onlyNumbers.test(year.value)) {
         textDate.visibility = "hidden";
     }
-    if (year.value == '') {
+    if (year.length == 0) {
         textDate.style.visibility = "visible"
         textDate.innerHTML = "Can't be blank"
     }
-    if(year.value != '' && onlyNumbers.test(year.value) == true) {
+    if(year.length != 0 && onlyNumbers.test(year.value) == true) {
         correctYear = true;
     }
 }
@@ -89,11 +94,11 @@ function checkCVC() {
         textCVC.style.visibility = "visible"
         textCVC.innerHTML = `Wrong format, numbers only`
     }
-    if (CVC.value == '') {
+    if (CVC.length == 0) {
         textCVC.style.visibility = "visible"
         textCVC.innerHTML = `Can't be blank`
     }
-    if(CVC.value != '' && onlyNumbers.test(CVC.value) == true) {
+    if(CVC.length == 3 && onlyNumbers.test(CVC.value)) {
         correctCVC = true;
     }
 }
