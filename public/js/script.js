@@ -1,6 +1,7 @@
 console.log("Hello World!");
 const onlyNumbers = /[0-9]/g;
 const onlyLetters = /[a-z]/ig;
+
 let correctNumber = false;
 let correctName = false;
 let correctMonth = false;
@@ -17,7 +18,7 @@ function checkNumber() {
     if (onlyNumbers.test(cardNumber.value)) {
         textNumber.style.visibility = 'hidden'
     }
-    if (cardNumber.length == 0) {
+    if (cardNumber.value == '') {
         textNumber.innerHTML = `Can't be blank`
         textNumber.style.visibility = 'visible'
     }
@@ -58,11 +59,11 @@ function checkMonth() {
     if (onlyNumbers.test(month.value)) {
         textDate.visibility = "hidden";
     }
-    if (month.length == 0) {
+    if (month.value == '') {
         textDate.style.visibility = "visible"
         textDate.innerHTML = "Can't be blank";
     }
-    if(month.length != 0 && onlyNumbers.test(month.value) == true) {
+    if(month.value != '' && onlyNumbers.test(month.value) == true) {
         correctMonth = true;
     }
 }
@@ -76,11 +77,11 @@ function checkYear() {
     if (onlyNumbers.test(year.value)) {
         textDate.visibility = "hidden";
     }
-    if (year.length == 0) {
+    if (year.value == '') {
         textDate.style.visibility = "visible"
         textDate.innerHTML = "Can't be blank"
     }
-    if(year.length != 0 && onlyNumbers.test(year.value) == true) {
+    if(year.value != '' && onlyNumbers.test(year.value) == true) {
         correctYear = true;
     }
 }
@@ -98,7 +99,7 @@ function checkCVC() {
         textCVC.style.visibility = "visible"
         textCVC.innerHTML = `Can't be blank`
     }
-    if(CVC.length == 3 && onlyNumbers.test(CVC.value)) {
+    if(CVC.value == '' && onlyNumbers.test(CVC.value)) {
         correctCVC = true;
     }
 }
